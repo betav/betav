@@ -1,7 +1,7 @@
 {
   "name": "alpha-empire-logistics",
   "private": true,
-  "workspaces": ["apps/*"],
+  "workspaces": ["apps/*", "tools"],
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=apps/api\" \"npm run dev --workspace=apps/web\" \"npm run dev --workspace=apps/pocketbase\"",
     "build": "npm run build --workspace=apps/web",

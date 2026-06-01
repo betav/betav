@@ -1,0 +1,11 @@
+{
+  "name": "tools",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "dotenv": "^16.4.5",
+    "pocketbase": "^0.21.3"
+  }
+}
