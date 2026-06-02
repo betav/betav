@@ -12,10 +12,22 @@ export async function requireAuth(req, res, next) {
 
   try {
     const pb = new PocketBase(POCKETBASE_URL)
-    pb.authStore.save(token, null)
+    pb.authStore.save(token, { id: 'admin' })
 
-    // Verify token is valid by calling authRefresh
-    await pb.collection('users').authRefresh()
+    // Try admin token first, then regular user token
+    let valid = false
+    try {
+      await pb.admins.authRefresh()
+      valid = true
+    } catch {
+      try {
+        pb.authStore.save(token, null)
+        await pb.collection('users').authRefresh()
+        valid = true
+      } catch { /* fall through */ }
+    }
+
+    if (!valid) return res.status(401).json({ error: 'Invalid or expired token' })
     req.pb = pb
     req.token = token
     next()
