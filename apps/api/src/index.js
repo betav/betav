@@ -41,7 +41,7 @@ app.use('/api/leads', leadsRouter)
 app.use('/api/analytics', analyticsRouter)
 
 // Health check
-app.get('/api/health', (req, res) => res.json({ ok: true, ts: Date.now() }))
+app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }))
 
 // 404
 app.use((req, res) => res.status(404).json({ error: 'Not found' }))
