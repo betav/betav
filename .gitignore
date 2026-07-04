@@ -8,3 +8,5 @@ apps/pocketbase/pocketbase
 apps/pocketbase/pb_data/
 apps/pocketbase/pb_migrations/
 .DS_Store
+apps/pocketbase/bin/
+apps/pocketbase/data/
