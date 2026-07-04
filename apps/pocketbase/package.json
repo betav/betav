@@ -1,0 +1,14 @@
+{
+  "name": "pocketbase",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "node start.js",
+    "start": "node start.js",
+    "setup": "node setup.js"
+  },
+  "dependencies": {
+    "pocketbase": "^0.21.3"
+  }
+}
